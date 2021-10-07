@@ -93,7 +93,7 @@ def infer(config):
         labeled_cleaned[img] = ['other','NA']
      
     if(save_csv):
-	    with open(root_dir+'/MR-Class_labels.csv', 'w') as csv_file:  
+	with open(root_dir+'/MR-Class_labels.csv', 'w') as csv_file:  
 		writer = csv.writer(csv_file)
 		for key, value in labeled_cleaned.items():
 		    writer.writerow([key, value])   
