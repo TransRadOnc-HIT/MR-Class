@@ -1,0 +1,33 @@
+
+# configuration file
+
+# Directories containing the corresponding Nifti files should have the same name as the class_names 
+# If 1 class is given, a one vs. all classification will be performed. Variable should be a list, not a string.
+class_names: ['T1'] 
+onevsall: True # for sub-classifications
+subclasses: True
+parentclass: True
+# Path to the classes directories 
+root_dir:  '/media/e210/e24791b0-b8f4-45f8-b972-d2f7bffa4a57/TCGA-GBM/TCGA_mrclass_by_sequence'
+checkpoint_dir: '/media/e210/HD2/mrclass_hnc/cp_3D/training_withOther/cp_dir'
+
+run_3d: False #trains a 3d resnet if True
+nr_slices: 50 # only in 3d mode
+spatial_size: 128 # 
+scan:  3 # for 2d mode; 2:axial, 1:coronal, 0:sagittal, 3:scan aquisation plane
+
+training_split: 0.8 # split for training/validation
+in_channels: 1 # number of channels. 1 for MRI.
+batch_size : 50
+num_epochs : 50
+num_workers: 4 # number of subprocesses for the data loader
+learning_rate: 0.001 # initial learning rate
+momentum: 0.9 # momentum for SGDa
+data_aug: True # if True runs simple data augmentation operations. See data_aumentation.py
+step_size: 7
+gamma: 0.1
+
+show_results: True # prints a small batch after training is complete
+num_images: 6
+remove_corrupt: False # removes any images in case of loading errors
+save_csv: True
