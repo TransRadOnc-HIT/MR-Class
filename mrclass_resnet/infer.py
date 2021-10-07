@@ -12,6 +12,7 @@ import csv
 def infer(config):
     
     CP_DIR =  config['checkpoint_dir']
+    save_csv =  config['save_csv']
     checkpoints = {'T1': CP_DIR + '/T1_other.pth',
                    'T2': CP_DIR +'/T2_other.pth',
                    'FLAIR': CP_DIR+'/FLAIR_other.pth',
@@ -91,10 +92,11 @@ def infer(config):
     for img in not_labeled:
         labeled_cleaned[img] = ['other','NA']
      
-    
-    with open(root_dir+'/MR-Class_labels.csv', 'w') as csv_file:  
-        writer = csv.writer(csv_file)
-        for key, value in labeled_cleaned.items():
-            writer.writerow([key, value])   
-    return labeled_cleaned
+    if(save_csv):
+	    with open(root_dir+'/MR-Class_labels.csv', 'w') as csv_file:  
+		writer = csv.writer(csv_file)
+		for key, value in labeled_cleaned.items():
+		    writer.writerow([key, value])   
+    else:
+    	return labeled_cleaned
        
