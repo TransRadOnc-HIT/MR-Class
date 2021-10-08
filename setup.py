@@ -5,17 +5,17 @@ from setuptools import setup, find_packages
 
 
 
-pkgs = ['nibabel==2.5.0',
-	'pydicom==1.3.0',
-	'opencv-python==4.1.0.25',
+pkgs = ['nibabel',
+	'pydicom',
+	'opencv-python',
 	'torchvision==0.8.2',
-	'matplotlib==3.3.1',
-	'scipy==1.4.1',
-	'PyYAML==5.3',
-	'pandas==1.0.1',
-	'scikit-image==0.16.2',
+	'matplotlib',
+	'scipy',
+	'PyYAML',
+	'pandas',
+	'scikit-image',
 	'torch==1.7.1',
-	'MedPy==0.3.0']
+	'medpy']
 
 setup(name='MR_CLASS',
       versiom='0.1.0',
